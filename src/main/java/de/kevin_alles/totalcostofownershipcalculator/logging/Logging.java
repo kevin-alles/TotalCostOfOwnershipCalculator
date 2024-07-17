@@ -4,33 +4,38 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Logging {
-    private static final Logger logger = LogManager.getLogger(Logging.class);
+    private static final Logger logger = LogManager.getLogger("TCOOC-Logger");
+    private static final Logging instance = new Logging();
 
-    public Logging() {
-        
+    private Logging() {
     }
 
-    public static void info(String message) {
+    public static Logging getInstance() {
+        return instance;
+    }
+
+    public void info(String message) {
         logger.info(message);
     }
 
-    public static void error(String message) {
+    public void error(String message) {
         logger.error(message);
     }
 
-    public static void debug(String message) {
+    public void debug(String message) {
         logger.debug(message);
     }
 
-    public static void warn(String message) {
+    public void warn(String message) {
         logger.warn(message);
     }
 
-    public static void trace(String message) {
+    public void trace(String message) {
         logger.trace(message);
     }
 
-    public static void fatal(String message) {
+    public void fatal(String message) {
         logger.fatal(message);
     }
+
 }
